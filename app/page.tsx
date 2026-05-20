@@ -98,9 +98,10 @@ export default function ColorAuraFilter() {
 
     const reader = new FileReader();
     reader.onload = (evt) => {
-      const dataUrl = evt.target.result;
-      setImagePreview(dataUrl);
-      const base64 = dataUrl.split(',')[1];
+      if (!evt.target) return;
+  const dataUrl = evt.target.result as string;
+  setImagePreview(dataUrl);
+  const base64 = dataUrl.split(',')[1];
       const mediaType = file.type || 'image/jpeg';
       setImageData({ base64, mediaType });
     };
