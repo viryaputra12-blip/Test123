@@ -65,7 +65,7 @@ const ANALYZING_PHRASES = [
 export default function ColorAuraFilter() {
   const [stage, setStage] = useState('intro');
   const [imageData, setImageData] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [analyzingPhrase, setAnalyzingPhrase] = useState(0);
