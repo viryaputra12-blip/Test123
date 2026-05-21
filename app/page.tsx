@@ -180,8 +180,8 @@ Return ONLY valid JSON, no preamble, no markdown fences:
       if (!response.ok) throw new Error('API request failed');
       const data = await response.json();
       const text = data.content
-        .filter((b) => b.type === 'text')
-        .map((b) => b.text)
+        .filter((b: { type: string; text: string }) => b.type === 'text')
+.map((b: { type: string; text: string }) => b.text)
         .join('')
         .replace(/```json|```/g, '')
         .trim();
