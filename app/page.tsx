@@ -187,7 +187,7 @@ Return ONLY valid JSON, no preamble, no markdown fences:
         .trim();
 
       const parsed = JSON.parse(text);
-      if (!MEMBERS[parsed.member]) throw new Error('Invalid member returned');
+      if (!MEMBERS[parsed.member as keyof typeof MEMBERS]) throw new Error('Invalid member returned');
 
       // Hold the analyzing state for at least 2.5s for drama
       setTimeout(() => {
